@@ -29,5 +29,10 @@ public class KnifeSpawner : MonoBehaviour
             Instantiate(knifePrefab, spawnPoint, Quaternion.identity);
             numberOfKnifesSpawn++;
         }
+        else
+        {
+            GameManager.Instance.GameWin();
+            Debug.Log("You Win");
+        }
     }
 }

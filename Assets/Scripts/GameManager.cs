@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject kniveUI;
     [SerializeField] private float yIndex;
 
+    [Header("GameWin")]
+    [SerializeField] private GameObject youWinEffect;
+    [SerializeField] private GameObject explotionEffect;
 
     public static GameManager Instance;
     private List<GameObject> knivesList=new List<GameObject>();
@@ -71,6 +74,18 @@ public class GameManager : MonoBehaviour
     {
         Destroy(knivesList[knivesList.Count - 1]);
         knivesList.RemoveAt(knivesList.Count - 1);
+    }
+    public void GameWin()
+    {
+        StartCoroutine(EffectsOn());
+    }
+    IEnumerator EffectsOn()
+    {
+        Vector3 pos = Wood.Instance.transform.position;
+        Destroy(Wood.Instance.gameObject);
+        Instantiate(explotionEffect, pos, Quaternion.identity);
+        yield return new WaitForSeconds(0.25f);
+        Instantiate(youWinEffect, pos, Quaternion.identity);
     }
     private void RestartScene()
     {

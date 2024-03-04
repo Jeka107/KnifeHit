@@ -7,10 +7,17 @@ public class Wood : MonoBehaviour
     [SerializeField] private int speed = 3;
     [SerializeField] private float shakeSpeed;
     [SerializeField] private float waitBeforeStopShaking;
+    
 
+    public static Wood Instance;
     private bool isShaking = false;
     private bool stopShaking = false;
+    private bool youWin = false;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void OnEnable()
     {
         Knife.onWoodHit += ShakeMe;
@@ -21,15 +28,18 @@ public class Wood : MonoBehaviour
     }
     void Update()
     {
-        transform.Rotate(0f, 0f, speed*Time.deltaTime);
+        if (!youWin)
+        {
+            transform.Rotate(0f, 0f, speed * Time.deltaTime);
 
-        if(isShaking)
-        {
-            transform.position =Vector3.Lerp(transform.position, new Vector3(0, transform.position.y+0.1f,0), shakeSpeed*Time.deltaTime);
-        }
-        else if(stopShaking)
-        {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y-0.1f, 0), shakeSpeed * Time.deltaTime);
+            if (isShaking)
+            {
+                transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y + 0.1f, 0), shakeSpeed * Time.deltaTime);
+            }
+            else if (stopShaking)
+            {
+                transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y - 0.1f, 0), shakeSpeed * Time.deltaTime);
+            }
         }
     }
     private void ShakeMe()

@@ -15,6 +15,10 @@ public class Knife : MonoBehaviour
     public static event OnThrowKnife onThrowKnife;
      
     [SerializeField] private float speed = 5f;
+    [SerializeField] private GameObject woodHitffect;
+    [SerializeField] private GameObject fruitHitffect;
+    [SerializeField] private GameObject youWinExplotion;
+
 
     private Rigidbody2D rb;
     private bool onWood=false;
@@ -34,21 +38,36 @@ public class Knife : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if(target.tag=="Wood")
+        if (target.tag == "Fruit")
         {
+            float x = Random.Range(-0.5f, 0.5f);
+            float y = Random.Range(-0.5f, 0.5f);
+
+            GameObject currentEffect = Instantiate(fruitHitffect, new Vector3(target.transform.position.x + x,
+                    target.transform.position.y - y, target.transform.position.z), Quaternion.identity);
+            Destroy(currentEffect, 2f);
+
+            Destroy(target.gameObject);
+            onFruitHit?.Invoke();
+        }
+        else if (target.tag=="Wood")
+        {
+            GameObject currentEffect =Instantiate(woodHitffect, new Vector3(transform.position.x,
+                transform.position.y+0.5f,transform.position.z), Quaternion.identity);
+            currentEffect.transform.SetParent(target.transform);
+
             gameObject.transform.SetParent(target.transform);//rotate the knife with the wood.
             rb.velocity = Vector2.zero;
             onWood = true;
             onWoodHit?.Invoke();
         }
-        if(target.tag=="Fruit")
-        {
-            Destroy(target.gameObject);
-            onFruitHit?.Invoke();
-        }
-        if (target.tag == "Knife")//Game over restart the scene.
+        else if (target.tag == "Knife")//Game over restart the scene.
         {
             onKnifeHit?.Invoke();
         }
+    }
+    private void FruitHitEffect()
+    {
+        
     }
 }
