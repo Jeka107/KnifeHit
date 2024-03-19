@@ -29725,7 +29725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDynamic: 0
-  text: YOU WIN!
+  text: YOU WON!
   size: 1
   letterSpacing: 0.35
   backgroundColor: {r: 0.58, g: 0.11796609, b: 0.11796609, a: 1}

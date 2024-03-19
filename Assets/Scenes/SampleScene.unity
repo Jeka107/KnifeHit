@@ -762,7 +762,7 @@ GameObject:
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &617775727
 Transform:
@@ -1160,7 +1160,7 @@ GameObject:
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &1022719575
 Transform:
@@ -1333,7 +1333,7 @@ GameObject:
   m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &1428197864
 Transform:
