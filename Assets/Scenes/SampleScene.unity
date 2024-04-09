@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 1
   fruitPoints: 4
-  maxNumberOfKnifes: 8
+  maxNumberOfKnifes: 2
   scoreText: {fileID: 255358799}
   knifes: {fileID: 2145303829}
   kniveUI: {fileID: 8020772327137789041, guid: 1a5323e9af4129c4699d44e3277bd104, type: 3}

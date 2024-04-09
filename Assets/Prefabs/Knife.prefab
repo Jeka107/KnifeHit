@@ -174,3 +174,4 @@ MonoBehaviour:
   speed: 8
   woodHitffect: {fileID: 1750940742320366, guid: ec1383a81f8b26e41bd5795fba065567, type: 3}
   fruitHitffect: {fileID: 5007356115317495820, guid: 589234fb0582236408be06f686098164, type: 3}
+  youWinExplotion: {fileID: 0}
